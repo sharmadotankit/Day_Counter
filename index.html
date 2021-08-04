@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Timer</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap" rel="stylesheet">
+</head>
+<body style="height: 100vh; width: 100vw;background-color: lightseagreen; padding: 0; margin: 0;overflow: hidden;font-family: 'Kanit', sans-serif; color: whitesmoke; letter-spacing: 3px;">
+	<div class="container" style="text-align: center; margin: 0;">
+		<h1>Number of days remaining :</h1>
+		<div id="datediv"style="max-width: fit-content;cursor: not-allowed; width: 80vw;border-radius: 50%;color: red; background-color:cyan;margin: auto;font-size: 12rem;padding: 40px;">
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		let date = new Date();
+		console.log(date);
+		let endDate = new Date('01/29/2023');
+		console.log(endDate);
+		const remainingDays = Math.floor((endDate-date)/(1000*60*60*24));
+		console.log(remainingDays);
+		const dateDiv = document.getElementById("datediv")
+		dateDiv.innerText = remainingDays;
+	</script>
+</body>
+</html>
