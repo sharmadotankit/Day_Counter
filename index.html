@@ -8,82 +8,84 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap" rel="stylesheet">
 	<style>
-		body{
+		body {
 			margin: 0;
 			padding: 0;
 		}
-		.container{
+
+		.container {
 			height: 100vh;
 			width: 100vw;
-			background-color: rgb(255, 221, 170);
+			background-color: rgb(36, 34, 33);
 			overflow-x: hidden;
-			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-			color: rgb(13, 52, 180); 
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			color: rgb(13, 52, 180);
 			letter-spacing: 3px;
 			display: flex;
 			justify-content: space-between;
 			text-align: center;
 		}
-		
-		.container>*{
+
+		.container>* {
 			width: 70%;
 			margin: auto;
 		}
 
-		#dateDiv{
-			color: rgb(185, 253, 189); 
-			background-color:rgb(13, 17, 221);
+		#startDate  {
+			color: rgb(11, 61, 14);
+			background-color: rgb(128, 197, 236);
 			margin: 25px;
-			width: fit-content;
-			margin: auto;
-			padding: 30px 45px;
-			border-radius: 50%;
-		}
-
-		#percentageDiv{
-			color: rgb(185, 253, 189); 
-			background-color:rgb(13, 17, 221);
-			margin: 25px;
-			width: fit-content;
-			margin: auto;
 			padding: 30px 10px;
-			border-radius: 50%;
-			
+			height: fit-content;
+			border-radius: 10px;
 		}
 
+
+		#percentageDiv {
+			color: rgb(8, 46, 10);
+			background-color: rgb(58, 221, 113);
+			margin: 25px;
+			padding: 30px 10px;
+			border-radius: 10px;
+			height: fit-content;
+		}
 	</style>
 </head>
 
 <body>
 
 	<div class="container">
-		<div>
-			<h1>Number of days remaining :</h1>
-			<div id="dateDiv">
-			</div>
+		<div id="startDate">
 		</div>
-		<div>
-			<h1>Percentage of days remaining : </h1>
-			<div id="percentageDiv"></div>
-			</div>
+		<div id="percentageDiv"></div>
+	</div>
 
-		</div>
 	</div>
 
 	</div>
 	<script type="text/javascript">
 		let date = new Date();
-		let start_date = new Date('08/01/2021');
+		let first_date = new Date('08/01/2021');
 		let endDate = new Date('01/29/2023');
-		let total_date_in_beginning = (endDate - start_date) / (1000 * 60 * 60 * 24);
+		let startDate = new Date('07/01/22');
+		let total_date_in_beginning = (endDate - first_date) / (1000 * 60 * 60 * 24);
 		const remainingDays = Math.floor((endDate - date) / (1000 * 60 * 60 * 24));
 		let percentage_date_remaining = ((remainingDays / total_date_in_beginning) * 100).toFixed(2);
 		console.log(percentage_date_remaining);
 		console.log(remainingDays);
-		const dateDiv = document.getElementById("dateDiv")
-		dateDiv.innerHTML = "<h1>"+remainingDays+"</h1>";
+		let date_remaining_to_start = Math.floor((startDate - date) / (1000 * 60 * 60 * 24));
+		let percentage_remain_start_date = ((date_remaining_to_start / ((startDate - first_date) / (1000 * 60 * 60 * 24))) * 100).toFixed(2);
+		const dateDiv = document.getElementById("dateDiv");
 		const percentageDiv = document.getElementById("percentageDiv");
-		percentageDiv.innerHTML = "<h1>"+percentage_date_remaining+"%</h1>";
+		percentageDiv.innerHTML = "<h1>Number of days  to  remaining  to  end :</h1>" +
+			"<h1>" + remainingDays + "</h1>" +
+			"<p>Percantage of days remaining to end :</p><br>" +
+			"<h1>" + percentage_date_remaining + "%</h1>";
+		const startDateDiv = document.getElementById("startDate");
+		startDateDiv.innerHTML = "<h1>Number of days remaining to start:</h1>" +
+			"<h1>" + date_remaining_to_start + "</h1>" +
+			"<p> Percentage of days remaining to Start</p><br>" +
+			"<h1>" + percentage_remain_start_date + "%</h1>";
 	</script>
 </body>
 
